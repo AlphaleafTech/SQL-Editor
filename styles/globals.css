@@ -1,5 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500&family=Jost:wght@400;500&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background-color: #262626;
+}
+
 html,
 body {
+  height: 100%;
+  width: 100%;
+  background-color: var(--background-color);
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
@@ -13,4 +26,24 @@ a {
 
 * {
   box-sizing: border-box;
+  font-family: "Jost";
+}
+
+.ace_editor,
+.ace_gutter {
+  background-color: var(--background-color) !important;
+}
+
+.ace_content *,
+.ace_gutter * {
+  font-family: "Monaco", "Menlo", "Ubuntu Mono", "Consolas", "source-code-pro",
+    monospace !important;
+}
+
+.ace_gutter {
+  border-right: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.ace_indent-guide {
+  display: none;
 }
