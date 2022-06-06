@@ -5,11 +5,17 @@
 @tailwind utilities;
 
 :root {
+  --background-color: #f8f8f8;
+  --line: #26262640;
+}
+:root.dark {
   --background-color: #262626;
+  --line: #ffffff40;
 }
 
 html,
 body {
+  transition: all 0.3s;
   height: 100%;
   width: 100%;
   background-color: var(--background-color);
@@ -31,7 +37,8 @@ a {
 
 .ace_editor,
 .ace_gutter {
-  background-color: var(--background-color) !important;
+  background-color: transparent !important;
+  transition: all 0.3s;
 }
 
 .ace_content *,
@@ -41,7 +48,7 @@ a {
 }
 
 .ace_gutter {
-  border-right: 1px solid rgba(255, 255, 255, 0.25);
+  border-right: 1px solid var(--line);
 }
 
 .ace_indent-guide {
