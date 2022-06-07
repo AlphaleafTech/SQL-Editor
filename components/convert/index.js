@@ -3,6 +3,7 @@ const convert = (data, mode) => {
     case 1:
       data = data.split("\n");
       data = data.map((line) => line.split(","));
+      data.splice(data.length - 1, 1);
       return data;
     case 2:
       data = data.map((line) => line.join(","));

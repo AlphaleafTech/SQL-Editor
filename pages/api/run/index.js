@@ -1,14 +1,50 @@
-const { spawn } = require("child_process");
+const { exec } = require("child_process");
 const fs = require("fs");
 const path = require("path");
+const { v4: uuid } = require("uuid");
 
-export default function handler(req, res) {
+export default async function handler(req, res) {
+  const { code, currentTable } = req.body;
+
+  if (!fs.existsSync(path.join(__dirname, "run")))
+    fs.mkdirSync(path.join(__dirname, "run"));
+
   if (!fs.existsSync(path.join(__dirname, "run/codes")))
     fs.mkdirSync(path.join(__dirname, "run/codes"));
-  if (!fs.existsSync(path.join(__dirname, "run/csv")))
-    fs.mkdirSync(path.join(__dirname, "run/csv"));
 
-  res.status(200).json({
-    name: "John Doe",
+  if (!fs.existsSync(path.join(__dirname, "run/csvs")))
+    fs.mkdirSync(path.join(__dirname, "run/csvs"));
+
+  const jobID = uuid();
+  fs.writeFileSync(
+    path.join(__dirname, `run/codes/${jobID}.sql`),
+    `.mode csv  
+.import '${path.join(__dirname, `run/csvs/${jobID}.csv`)}' CurrentTable
+${code}`
+  );
+  fs.writeFileSync(path.join(__dirname, `run/csvs/${jobID}.csv`), currentTable);
+
+  const output = await new Promise((resolve, reject) => {
+    exec(
+      `sqlite3 ${path.join(__dirname, `run/codes/${jobID}.db`)} < ${path.join(
+        __dirname,
+        `run/codes/${jobID}.sql && rm -rf ${path.join(
+          __dirname,
+          `run/codes/${jobID}.db`
+        )}`
+      )}`,
+      (error, stdout) => {
+        if (error) {
+          reject({ success: false, error: error.toString() });
+          return;
+        }
+        resolve({ success: true, data: stdout.toString() });
+      }
+    );
+  });
+
+  res.status(output.success ? 200 : 500).json({
+    ...output,
+    jobid: jobID,
   });
 }

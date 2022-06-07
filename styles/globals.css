@@ -86,14 +86,14 @@ input[type="file"]::file-selector-button {
   transition: 1s;
 }
 
-tr:nth-child(1) {
+.current-table tr:nth-child(1) {
   position: sticky;
   top: 0;
   background-color: var(--background-color);
   transition: background 0.3s;
   z-index: 20;
 }
-td:nth-child(1) {
+.current-table td:nth-child(1) {
   position: sticky;
   left: 0;
   background-color: var(--background-color);

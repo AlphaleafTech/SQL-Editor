@@ -7,7 +7,7 @@ export default function Table({ data }) {
             {item &&
               item.map((item, index) => (
                 <td
-                  className="border border-darkBGColor/25 dark:border-white/25 p-2"
+                  className="whitespace-nowrap border border-darkBGColor/25 dark:border-white/25 p-2 h-fit"
                   key={`td-${index}`}
                 >
                   {item}

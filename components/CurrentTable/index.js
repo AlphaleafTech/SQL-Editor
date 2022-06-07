@@ -32,7 +32,7 @@ export default function CurrentTable({ setBody }) {
   }, [csvData]);
 
   return (
-    <div className="h-full w-full pr-4 pt-4 pb-4 grid grid-rows-[auto_1fr] gap-4">
+    <div className="current-table h-full w-full pr-4 pt-4 pb-4 grid grid-rows-[auto_1fr] gap-4">
       <div className="flex justify-between items-center">
         <div className="text-darkBGColor dark:text-darkTextColor text-xl">
           CurrentTable
