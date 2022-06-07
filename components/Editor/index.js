@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export default function Editor() {
+export default function Editor({ setBody }) {
   const [value, setValue] = useState(`-- Online SQL Editor to Run SQL Online.
 -- Use the editor to create new tables, insert data and all other SQL operations.
 
@@ -14,6 +14,10 @@ SELECT * FROM Customers;`),
     require("ace-builds/src-noconflict/theme-cloud9_day");
     require("ace-builds/src-noconflict/ext-language_tools");
   }, []);
+
+  useEffect(() => {
+    setBody((prev) => ({ ...prev, code: value }));
+  }, [value]);
 
   return (
     <div className="max-w-screen-xl mx-auto h-full w-full">

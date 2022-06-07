@@ -1,10 +1,23 @@
-import { Button } from "../";
 import { useState, useEffect } from "react";
 
 import DefaultCSVData from "../../public/users.csv";
 
-export default function CurrentTable() {
-  const [tableData, setTableData] = useState(null);
+export default function CurrentTable({ setBody }) {
+  const [csvData, setCSVData] = useState(""),
+    [tableData, setTableData] = useState(null);
+
+  const convert = (data, mode) => {
+    switch (mode) {
+      case 1:
+        data = data.split("\n");
+        data = data.map((line) => line.split(","));
+        return data;
+      case 2:
+        data = data.map((line) => line.join(","));
+        data = data.join("\n");
+        return data;
+    }
+  };
 
   function readImage(file) {
     if (file.target.value && !file.target.value.endsWith(".csv")) {
@@ -14,22 +27,26 @@ export default function CurrentTable() {
     const reader = new FileReader();
     reader.addEventListener("load", (event) => {
       let data = event.target.result;
-      data = data.split("\n");
-      data = data.map((line) => line.split(","));
-      setTableData(data);
+      setCSVData(data);
+      setTableData(convert(data, 1));
     });
     reader.readAsText(file.target.files[0]);
   }
 
   useEffect(() => {
     setTableData(DefaultCSVData);
+    setCSVData(convert(DefaultCSVData, 2));
   }, []);
+
+  useEffect(() => {
+    setBody((prev) => ({ ...prev, currentTable: csvData }));
+  }, [csvData]);
 
   return (
     <div className="h-full w-full pr-4 pt-4 pb-4 grid grid-rows-[auto_1fr] gap-4">
       <div className="flex justify-between items-center">
         <div className="text-darkBGColor dark:text-darkTextColor text-xl">
-          Current Table
+          CurrentTable
         </div>
         <div className="flex justify-between items-center gap-2">
           <label className="text-sm text-darkBGColor dark:text-darkTextColor ">
