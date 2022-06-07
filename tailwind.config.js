@@ -12,6 +12,7 @@ module.exports = {
       darkSecondaryBGColor: "#424242",
       white: "#ffffff",
       lightSecondaryColor: "#e4e4e4",
+      error: "#ff5c5c",
     },
     extend: {
       gridTemplateRows: {

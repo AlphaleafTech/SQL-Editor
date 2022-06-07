@@ -77,7 +77,6 @@ a {
 }
 
 input[type="file"]::file-selector-button {
-  content: "Poop";
   padding: 0.2em 0.4em;
   border: 0;
   cursor: pointer;
@@ -99,4 +98,39 @@ input[type="file"]::file-selector-button {
   background-color: var(--background-color);
   transition: background 0.3s;
   z-index: 10;
+}
+
+@media screen and (max-width: 360px) {
+  html,
+  body {
+    font-size: 10px;
+  }
+}
+
+@media screen and (min-width: 360px) and (max-width: 411px) {
+  html,
+  body {
+    font-size: 13px;
+  }
+}
+
+@media screen and (min-width: 411px) and (max-width: 769px) {
+  html,
+  body {
+    font-size: 13px;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  html,
+  body {
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1440px) {
+  html,
+  body {
+    font-size: 16px;
+  }
 }

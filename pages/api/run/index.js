@@ -35,7 +35,11 @@ ${code}`
       )}`,
       (error, stdout) => {
         if (error) {
-          reject({ success: false, error: error.toString() });
+          error = error.toString();
+          resolve({
+            success: false,
+            error: error.substring(error.lastIndexOf("Error: ")),
+          });
           return;
         }
         resolve({ success: true, data: stdout.toString() });
@@ -43,7 +47,7 @@ ${code}`
     );
   });
 
-  res.status(output.success ? 200 : 500).json({
+  res.status(200).json({
     ...output,
     jobid: jobID,
   });

@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 
 export default function Editor({ setBody }) {
-  const [value, setValue] = useState(`-- Online SQL Editor to Run SQL Online.
--- Use the editor to create new tables, insert data and all other SQL operations.
+  const [value, setValue] =
+      useState(`-- Run actual SQL online! API Docs on Github.
+-- Use the editor to create new tables, insert data and most other SQL operations.
+-- I might be missing something, you can let me know by creating an issue on Github.
 
-SELECT * FROM CurrentTable;`),
+SELECT first_name, last_name, age  FROM CurrentTable;`),
     [AceEditor, setAceEditor] = useState(null);
 
   useEffect(() => {

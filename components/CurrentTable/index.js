@@ -32,8 +32,8 @@ export default function CurrentTable({ setBody }) {
   }, [csvData]);
 
   return (
-    <div className="current-table h-full w-full pr-4 pt-4 pb-4 grid grid-rows-[auto_1fr] gap-4">
-      <div className="flex justify-between items-center">
+    <div className="current-table h-full w-full pr-2 md:pr-4 pt-4 pb-4 grid grid-rows-[auto_1fr] gap-4">
+      <div className="flex justify-between md:items-center flex-col md:flex-row gap-4">
         <div className="text-darkBGColor dark:text-darkTextColor text-xl">
           CurrentTable
           <span className={"block text-sm"}>Name of the Table</span>
@@ -43,7 +43,7 @@ export default function CurrentTable({ setBody }) {
             Upload CSV
           </label>
           <input
-            className="w-48 block text-sm text-gray-900 bg-gray-50 border cursor-pointer dark:text-darkTextColor outline-none border-lightSecondaryColor dark:border-darkSecondaryBGColor dark:placeholder-darkTextColor p-2"
+            className="w-full md:w-48 block text-sm text-gray-900 bg-gray-50 border cursor-pointer dark:text-darkTextColor outline-none border-lightSecondaryColor dark:border-darkSecondaryBGColor dark:placeholder-darkTextColor p-2"
             type="file"
             content="Upload CSV"
             onChange={readCSV}
@@ -53,7 +53,7 @@ export default function CurrentTable({ setBody }) {
           />
         </div>
       </div>
-      <div className="w-full h-full flex justify-start overflow-auto border border-darkBGColor/25 dark:border-white/25">
+      <div className="w-full h-full overflow-auto border border-darkBGColor/25 dark:border-white/25">
         <Table data={tableData} />
       </div>
     </div>
