@@ -13,7 +13,11 @@ module.exports = {
       white: "#ffffff",
       lightSecondaryColor: "#e4e4e4",
     },
-    extends: {},
+    extend: {
+      gridTemplateRows: {
+        layout: "4rem minmax(0, 1fr) minmax(0, 1fr)",
+      },
+    },
   },
   plugins: [],
 };

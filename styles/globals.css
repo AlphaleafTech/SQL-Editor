@@ -7,10 +7,12 @@
 :root {
   --background-color: #f8f8f8;
   --line: #26262640;
+  --text-color: #262626;
 }
 :root.dark {
   --background-color: #262626;
   --line: #ffffff40;
+  --text-color: #ffd66d;
 }
 
 html,
@@ -53,4 +55,46 @@ a {
 
 .ace_indent-guide {
   display: none;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-color);
+  color: transparent !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--line);
+  color: transparent !important;
+}
+
+::-webkit-scrollbar-corner {
+  background: rgba(0, 0, 0, 0);
+}
+
+input[type="file"]::file-selector-button {
+  content: "Poop";
+  padding: 0.2em 0.4em;
+  border: 0;
+  cursor: pointer;
+  background-color: var(--line);
+  color: var(--text-color);
+  transition: 1s;
+}
+
+tr:nth-child(1) {
+  position: sticky;
+  top: 0;
+  background-color: var(--background-color);
+  z-index: 20;
+}
+td:nth-child(1) {
+  position: sticky;
+  left: 0;
+  background-color: var(--background-color);
+  z-index: 10;
 }

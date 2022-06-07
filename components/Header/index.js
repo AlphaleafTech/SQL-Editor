@@ -31,8 +31,8 @@ export default function Header() {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="border-b-[1px] border-darkBGColor/25 dark:border-white/25 w-full px-4">
-        <div className="max-w-screen-xl m-auto flex justify-between items-center h-16 text-2xl text-darkBGColor dark:text-darkTextColor">
+      <div className="border-b-[1px] border-darkBGColor/25 dark:border-white/25 w-full h-full px-4">
+        <div className="w-full h-full max-w-screen-xl m-auto flex justify-between items-center text-2xl text-darkBGColor dark:text-darkTextColor py-2">
           <span className="">
             Online SQL Editor
             <Link href="https://jaagrav.in/">
