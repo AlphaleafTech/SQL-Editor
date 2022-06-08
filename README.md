@@ -8,6 +8,8 @@ Run SQL online by visiting this [website](https://sql-editor-jaagrav.herokuapp.c
 
 Tested on [Google's PageSpeed Insights](https://pagespeed.web.dev/report?url=https%3A%2F%2Fsql-editor-jaagrav.herokuapp.com%2F&form_factor=desktop) this website loads in under **0.8s** on Desktop, however on phone it's not as good with a load time of **4.8s**.
 
+**Disclaimer**: All this data was recorded when the Heroku Dyno was awake, since I am using a free heroku dyno for this project, after 30 mins of inactivity the Dyno will sleep.
+
 ## Getting Started
 
 ### Install project (using Docker)
