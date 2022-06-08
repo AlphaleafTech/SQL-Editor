@@ -9,10 +9,6 @@ export default function Home() {
     currentTable: ``,
   });
 
-  useEffect(() => {
-    console.log(body);
-  }, [body]);
-
   return (
     <div className="h-screen w-full ">
       <div className="h-full w-full grid grid-rows-layout">
