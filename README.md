@@ -4,7 +4,7 @@ Run SQL online by visiting this [website](https://sql-editor-jaagrav.herokuapp.c
 
 ## Performance
 
-![On Desktop](https://i.postimg.cc/9Q6FRSV7/Screenshot-from-2022-06-08-06-45-48.png)
+![On Desktop](https://user-images.githubusercontent.com/52719271/172604433-dc9fb732-7030-446f-977b-ce7548e15a00.png)
 
 Tested on [Google's PageSpeed Insights](https://pagespeed.web.dev/report?url=https%3A%2F%2Fsql-editor-jaagrav.herokuapp.com%2F&form_factor=desktop) this website loads in under **0.8s** on Desktop, however on phone it's not as good with a load time of **4.8s**.
 
