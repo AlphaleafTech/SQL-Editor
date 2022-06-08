@@ -5,7 +5,7 @@ import { useEffect } from "react";
 
 import { FiSun, FiMoon, FiGithub } from "react-icons/fi";
 
-export default function Header() {
+export default function Header({ setCurrentTheme }) {
   const setTheme = (theme) => {
       localStorage.theme = theme;
       if (localStorage.theme === "dark" || !("theme" in localStorage)) {
@@ -13,6 +13,7 @@ export default function Header() {
       } else {
         document.documentElement.classList.remove("dark");
       }
+      setCurrentTheme(theme);
     },
     changeTheme = () => {
       const prevTheme = localStorage.theme;

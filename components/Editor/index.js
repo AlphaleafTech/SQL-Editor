@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export default function Editor({ setBody }) {
+export default function Editor({ currentTheme, setBody }) {
   const [value, setValue] =
       useState(`-- Run actual SQL online! API Docs on Github.
 -- Use the editor to create new tables, insert data and most other SQL operations.
@@ -23,30 +23,13 @@ SELECT first_name, last_name, age  FROM CurrentTable;`),
 
   return (
     <div className="max-w-screen-xl mx-auto h-full w-full">
-      <div className="hidden dark:block h-full w-full">
+      <div className="h-full w-full">
         {AceEditor && (
           <AceEditor
             mode="mysql"
-            theme="dracula"
+            theme={currentTheme === "dark" ? "dracula" : "cloud9_day"}
             onChange={(e) => setValue(e)}
             name="DARK_EDITOR"
-            height="100%"
-            width="100%"
-            fontSize={24}
-            showPrintMargin={false}
-            value={value}
-            displayIndentGuides={false}
-            editorProps={{ $blockScrolling: true }}
-          />
-        )}
-      </div>
-      <div className="block dark:hidden h-full w-full">
-        {AceEditor && (
-          <AceEditor
-            mode="mysql"
-            theme="cloud9_day"
-            onChange={(e) => setValue(e)}
-            name="LIGHT_EDITOR"
             height="100%"
             width="100%"
             fontSize={24}
