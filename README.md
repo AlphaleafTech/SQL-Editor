@@ -4,9 +4,9 @@ Run SQL online by visiting this [website](https://sql-editor-jaagrav.herokuapp.c
 
 ## Performance
 
-![On Desktop](https://user-images.githubusercontent.com/52719271/172604433-dc9fb732-7030-446f-977b-ce7548e15a00.png)
+![image](https://user-images.githubusercontent.com/52719271/173151996-01010003-6dd3-4f94-b5c3-561152014aa9.png)
 
-Tested on [Google's PageSpeed Insights](https://pagespeed.web.dev/report?url=https%3A%2F%2Fsql-editor-jaagrav.herokuapp.com%2F&form_factor=desktop) this website loads in under **0.8s** on Desktop, however on phone it's not as good with a load time of **4.8s**.
+Tested on [GT Metrix](https://gtmetrix.com/reports/sql-editor-jaagrav.herokuapp.com/BjEo8H7R/) this website loads in under just **0.8s**. As shown in the image above the website receives a GT Metrix Grade A with 98% performance score. Performance Score is essentially the website's Lighthouse Performance Score, as captured by GTmetrix, with their custom audits, Analysis Options, browser and hardware specifications.
 
 **Disclaimer**: All this data was recorded when the Heroku Dyno was awake, since I am using a free heroku dyno for this project, after 30 mins of inactivity the Dyno will sleep.
 
